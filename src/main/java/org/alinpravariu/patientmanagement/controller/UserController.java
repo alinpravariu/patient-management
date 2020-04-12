@@ -14,7 +14,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping(path = "/add")
-    public @ResponseBody String addNewUser (@RequestParam String username, @RequestParam String password, @RequestParam String firstName, @RequestParam String lastName) {
+    public @ResponseBody String addNewUser(@RequestParam String username, @RequestParam String password, @RequestParam String firstName, @RequestParam String lastName) {
 
         User user = new User();
 
@@ -25,7 +25,7 @@ public class UserController {
 
         userRepository.save(user);
 
-        return "User saved!";
+        return "User saved successfully.";
     }
 
     @GetMapping(path = "/all")
