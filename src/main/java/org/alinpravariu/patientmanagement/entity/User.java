@@ -18,6 +18,9 @@ public class User {
 
     private String lastName;
 
+    @OneToOne(mappedBy = "user")
+    private Examination examination;
+
     public Integer getId() {
         return id;
     }
