@@ -8,10 +8,12 @@ import org.alinpravariu.patientmanagement.repository.PatientRepository;
 import org.alinpravariu.patientmanagement.repository.UserRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class PatientManagementApplicationTests {
 
 	@Mock
