@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "examinations")
 public class Examination {
 
-    private enum Status{IN_PROGRESS, COMPLETED};
+    public enum Status{IN_PROGRESS, COMPLETED};
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
