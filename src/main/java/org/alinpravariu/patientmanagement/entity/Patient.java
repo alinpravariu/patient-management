@@ -16,6 +16,9 @@ public class Patient {
 
     private String lastName;
 
+    @OneToOne(mappedBy = "patient")
+    private Examination examination;
+
     public Integer getId() {
         return id;
     }
