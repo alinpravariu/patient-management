@@ -1,11 +1,11 @@
 package org.alinpravariu.patientmanagement;
 
+import org.alinpravariu.patientmanagement.entity.Doctor;
 import org.alinpravariu.patientmanagement.entity.Examination;
 import org.alinpravariu.patientmanagement.entity.Patient;
-import org.alinpravariu.patientmanagement.entity.User;
+import org.alinpravariu.patientmanagement.repository.DoctorRepository;
 import org.alinpravariu.patientmanagement.repository.ExaminationRepository;
 import org.alinpravariu.patientmanagement.repository.PatientRepository;
-import org.alinpravariu.patientmanagement.repository.UserRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -17,25 +17,25 @@ import org.springframework.boot.test.context.SpringBootTest;
 class PatientManagementApplicationTests {
 
 	@Mock
-	private UserRepository mockUserRepository;
+	private DoctorRepository mockDoctorRepository;
 	@Mock
 	private PatientRepository mockPatientRepository;
 	@Mock
 	private ExaminationRepository mockExaminationRepository;
 
-	private User user;
+	private Doctor doctor;
 	private Patient patient;
 	private Examination examination;
 
 	@BeforeAll
 	public void setup() {
-		user = new User();
+		doctor = new Doctor();
 
-		user.setId(1);
-		user.setUsername("alinpravariu");
-		user.setPassword("test");
-		user.setFirstName("Alin");
-		user.setLastName("Pravariu");
+		doctor.setId(1);
+		doctor.setUsername("alinpravariu");
+		doctor.setPassword("test");
+		doctor.setFirstName("Alin");
+		doctor.setLastName("Pravariu");
 
 		patient = new Patient();
 
@@ -47,7 +47,7 @@ class PatientManagementApplicationTests {
 		examination = new Examination();
 
 		examination.setId(1);
-		examination.setUser(user);
+		examination.setDoctor(doctor);
 		examination.setPatient(patient);
 		examination.setStatus(Examination.Status.IN_PROGRESS);
 	}
@@ -56,7 +56,7 @@ class PatientManagementApplicationTests {
 	public void testAddUser() {
 		final String username = "alinpravariu";
 
-		User result = mockUserRepository.save(user);
+		Doctor result = mockDoctorRepository.save(doctor);
 
 		assert(result.getUsername().equals(username));
 	}
@@ -76,7 +76,7 @@ class PatientManagementApplicationTests {
 
 		Examination result = mockExaminationRepository.save(examination);
 
-		assert(result.getUser().getUsername().equals(username));
+		assert(result.getDoctor().getUsername().equals(username));
 	}
 
 }

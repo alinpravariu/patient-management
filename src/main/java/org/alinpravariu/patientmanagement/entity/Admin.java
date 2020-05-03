@@ -1,10 +1,12 @@
 package org.alinpravariu.patientmanagement.entity;
 
+import org.alinpravariu.patientmanagement.factory.User;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "Admins")
+public class Admin implements User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,9 +19,6 @@ public class User {
     private String firstName;
 
     private String lastName;
-
-    @OneToOne(mappedBy = "user")
-    private Examination examination;
 
     public Integer getId() {
         return id;
@@ -63,7 +62,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Admin{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

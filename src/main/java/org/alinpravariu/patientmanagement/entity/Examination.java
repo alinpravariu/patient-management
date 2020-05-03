@@ -12,8 +12,8 @@ public class Examination {
     private Integer id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "doctor_id", referencedColumnName = "id")
+    private Doctor doctor;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
@@ -29,12 +29,12 @@ public class Examination {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public Patient getPatient() {

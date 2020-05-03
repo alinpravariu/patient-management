@@ -1,7 +1,8 @@
 package org.alinpravariu.patientmanagement.controller;
 
 import org.alinpravariu.patientmanagement.entity.Patient;
-import org.alinpravariu.patientmanagement.entity.User;
+import org.alinpravariu.patientmanagement.factory.User;
+import org.alinpravariu.patientmanagement.factory.UserFactory;
 import org.alinpravariu.patientmanagement.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,13 +18,14 @@ public class PatientController {
     @PostMapping(path = "/add-patient")
     public @ResponseBody String addNewPatient(@RequestParam String ssn, @RequestParam String firstName, @RequestParam String lastName) {
 
-        Patient patient = new Patient();
+        UserFactory userFactory = new UserFactory();
+        User user = userFactory.getUser("Patient");
 
-        patient.setSsn(ssn);
-        patient.setFirstName(firstName);
-        patient.setLastName(lastName);
+        ((Patient) user).setSsn(ssn);
+        ((Patient) user).setFirstName(firstName);
+        ((Patient) user).setLastName(lastName);
 
-        patientRepository.save(patient);
+        patientRepository.save((Patient) user);
 
         return "Patient saved successfully.";
     }

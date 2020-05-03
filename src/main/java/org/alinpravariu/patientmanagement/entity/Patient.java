@@ -1,10 +1,12 @@
 package org.alinpravariu.patientmanagement.entity;
 
+import org.alinpravariu.patientmanagement.factory.User;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "patients")
-public class Patient {
+public class Patient implements User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

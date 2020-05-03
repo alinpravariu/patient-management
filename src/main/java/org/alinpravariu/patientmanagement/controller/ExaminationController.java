@@ -1,8 +1,8 @@
 package org.alinpravariu.patientmanagement.controller;
 
+import org.alinpravariu.patientmanagement.entity.Doctor;
 import org.alinpravariu.patientmanagement.entity.Examination;
 import org.alinpravariu.patientmanagement.entity.Patient;
-import org.alinpravariu.patientmanagement.entity.User;
 import org.alinpravariu.patientmanagement.observer.Observer;
 import org.alinpravariu.patientmanagement.repository.ExaminationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,11 @@ public class ExaminationController {
     }
 
     @PostMapping(path = "/add-examination")
-    public @ResponseBody String addNewExamination(@RequestParam User user, @RequestParam Patient patient, @RequestParam Examination.Status status) {
+    public @ResponseBody String addNewExamination(@RequestParam Doctor doctor, @RequestParam Patient patient, @RequestParam Examination.Status status) {
 
         Examination examination = new Examination();
 
-        examination.setUser(user);
+        examination.setDoctor(doctor);
         examination.setPatient(patient);
         examination.setStatus(Examination.Status.IN_PROGRESS);
 
