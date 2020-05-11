@@ -2,8 +2,7 @@ package org.alinpravariu.patientmanagement.entity;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "examinations")
+@Entity(name = "examinations")
 public class Examination {
 
     public enum Status{IN_PROGRESS, COMPLETED};

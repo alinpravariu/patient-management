@@ -18,4 +18,7 @@ Pachetul "observer" contine clasele si interfetele necesare pentru design patter
 pacientul in momentul in care examinarea sa a primit un rezultat.  
 Pentru testarea functionalitatilor aplicatiei am folosit Mockito.
 ## Diagrame
-TO-DO
+### Diagrama de clase
+![image](Class%20diagram.png)
+### Diagrama de secventa
+![image](Sequence%20diagram.png)

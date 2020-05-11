@@ -4,8 +4,7 @@ import org.alinpravariu.patientmanagement.factory.User;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "patients")
+@Entity(name = "patients")
 public class Patient implements User {
 
     @Id
